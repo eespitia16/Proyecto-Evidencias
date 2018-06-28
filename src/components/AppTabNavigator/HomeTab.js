@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {StyleSheet,Text,View, ScrollView} from 'react-native';
 
-import {Container, Content, Icon, Thumbnail} from 'native-base'
+import {Container, Content, Icon, Thumbnail, Header, Left, Right, Body} from 'native-base'
 import CardComponent from '../CardComponent'
 
 class HomeTab extends Component {
@@ -15,17 +15,35 @@ class HomeTab extends Component {
   render() {
     return (
       <Container style={styles.Container}>
+        <Header>
+            <Left><Icon name="ios-camera-outline" style={{ paddingLeft: 10}}
+            ></Icon></Left>
+            <Body><Text>Instagram</Text></Body>
+            <Right><Icon name="ios-send-outline" style={{ paddingRight: 10}}
+            ></Icon></Right>
+        </Header>
+
+
         <Content>
           <View style={{ height: 100}}>
               <View style={{ flex: 1, flexDirection: 'row', justifyContent:
               'space-between' }}>
-                  <Text>Stories</Text>
-                  <Text>Watch All</Text>
+                  <Text style={{ fontWeight: 'bold'}}>Stories</Text>
+
+                  <View style={{ flexDirection: 'row', 'alignItems': 'center'}}>
+                      <Icon name="md-play" style={{ fontSize: 14 }}></Icon>
+                      <Text style={{ fontWeight: 'bold'}}> Watch All</Text>
+                  </View>
               </View>   
               <View style={{ flex: 3}}>
                   <ScrollView
                       horizontal={true}
                       showsHorizontalScrollIndicator={false}
+                      contentContainerStyle={{
+                          alignItems: 'center',
+                          paddingStart: 5,
+                          paddingEnd: 5
+                      }}
                       >
 
                       <Thumbnail 
